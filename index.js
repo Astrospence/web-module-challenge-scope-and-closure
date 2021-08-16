@@ -30,11 +30,12 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+    - counter1 uses closure and has a function nested inside another function, and counter2 uses a variable declared outside the function scope and doesn't use closure.
   2. Which of the two uses a closure? How can you tell?
-  
+    - counter1 uses closure because it has a function nested inside another function.
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+    - one might use counter1 to perform a more complex function that require multiple layers of nested actions, and one might use counter2 for simpler functions that don't require multiple layers of action.
 */
 
 // counter1 code
@@ -64,9 +65,11 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+    return Math.floor(Math.random() * 2)
 }
+
+console.log('Task2:', inning());
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
