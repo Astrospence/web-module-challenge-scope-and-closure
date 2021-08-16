@@ -110,8 +110,8 @@ function getInningScore(inningcb, numberOfInnings) {
     let homeScore = 0;
     let awayScore = 0;
     for(let i = 0; i < numberOfInnings; i++){
-      homeScore = homeScore + inningcb();
-      awayScore = awayScore + inningcb();
+      homeScore = inningcb();
+      awayScore = inningcb();
     }
     currentScore.push({'Home': homeScore, 'Away': awayScore});
     return currentScore[0];
@@ -161,8 +161,19 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(inningcb, numberOfInnings) {
+    const inningScores = [];
+    let homeScore = 0;
+    let awayScore = 0;
+    
+    for(let i = 0; i < numberOfInnings; i++){
+      homeScore = inningcb();
+      awayScore = inningcb();
+      inningScores.push(`Inning ${i + 1}: Away ${awayScore} - Home ${homeScore}`);
+    }
+    return inningScores;
+
+    
 }
 
 
