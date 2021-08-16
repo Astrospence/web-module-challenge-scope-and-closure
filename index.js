@@ -35,7 +35,7 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
     - counter1 uses closure because it has a function nested inside another function.
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
-    - one might use counter1 to perform a more complex function that require multiple layers of nested actions, and one might use counter2 for simpler functions that don't require multiple layers of action.
+    - one might use counter1 to perform a more complex function that require multiple layers of nested actions, and one might use counter2 for simpler functions that don't require multiple layers of action, or if you needed to access the variable on a global scale later in the code.
 */
 
 // counter1 code
@@ -86,9 +86,20 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inningcb, numberOfInnings){
+    const scoreArray = [];
+    let homeScore = 0;
+    let awayScore = 0;
+    for(let i = 0; i < numberOfInnings; i++){
+      homeScore = homeScore + inningcb();
+      awayScore = awayScore + inningcb();
+    }
+
+    scoreArray.push({'Home': homeScore, 'Away': awayScore});
+    return scoreArray[0];
 }
+
+console.log('Task3:', finalScore(inning, 9));
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
